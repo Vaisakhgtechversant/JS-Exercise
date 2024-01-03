@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data</title>
+</head>
+<body>
+    <input style="height: 40px;" width="60px" type="date" name="date" id="date"/>
+    <button onclick="findDate()">Find</button>
+    <script>
+        document.getElementById("date").valueAsDate = new Date();
+        const findDate = () => {
+            let date = document.getElementById("date").valueAsDate.toLocaleDateString();
+            let today = new Date().toLocaleDateString();
+            if (date > today) alert("After today");
+            if (date < today) alert("Before today");
+            if (date === today) alert("Today");
+        };
+    </script>
+</body>
+</html>

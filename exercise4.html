@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Arithmetic Operation Evaluator</title>
+  <style>
+    
+    #inputString {
+      width: 300px; 
+      height: 40px;
+      font-size: 16px; 
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="inputString" placeholder="Enter arithmetic expression">
+  <button onclick="calculate()">Calculate</button>
+  <p id="result"></p>
+
+  <script>
+    function calculate() {
+      const inputString = document.getElementById('inputString').value;
+      const result = evaluateExpression(inputString);
+      document.getElementById('result').innerText = `Result: ${result}`;
+    }
+
+    function evaluateExpression(expression) {
+      const replacedExpression = expression
+        .replace(/plus/g, '+')
+        .replace(/minus/g, '-')
+        .replace(/multipliedby/g, '*')
+        .replace(/dividedby/g, '/');
+
+      try {
+        const result = Math.ceil(eval(replacedExpression));
+        return result;
+      } catch (error) {
+        return 'Invalid expression';
+      }
+    }
+  </script>
+</body>
+</html>

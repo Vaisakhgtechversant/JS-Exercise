@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Capitalizing Sentences</title>
+  <style>
+    #textInput {
+      width: 400px;
+      height: 100px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <textarea id="textInput" placeholder="Enter a paragraph of text"></textarea>
+  <button onclick="capitalizeFirstLetters()">Capitalize First Letters</button>
+  <p id="output"></p>
+
+  <script>
+    function capitalizeFirstLetters() {
+      const inputText = document.getElementById('textInput').value;
+      const capitalizedText = capitalizeSentences(inputText);
+      document.getElementById('output').innerText = capitalizedText;
+    }
+
+    function capitalizeSentences(text) {
+      return text.replace(/(^\w|\.\s+\w)/g, function(match) {
+        return match.toUpperCase();
+      });
+    }
+  </script>
+</body>
+</html>
